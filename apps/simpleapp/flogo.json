@@ -1,0 +1,64 @@
+{
+  "name": "simpleapp",
+  "type": "flogo:app",
+  "version": "0.0.1",
+  "description": "",
+  "triggers": [
+    {
+      "name": "Timer",
+      "ref": "github.com/TIBCOSoftware/flogo-contrib/trigger/timer",
+      "description": "Simple Timer trigger",
+      "settings": {},
+      "id": "timer",
+      "handlers": [
+        {
+          "settings": {
+            "repeating": "true",
+            "notImmediate": "false",
+            "startDate": "",
+            "hours": "",
+            "minutes": "",
+            "seconds": "5"
+          },
+          "actionId": "sactivity"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "sactivity",
+      "data": {
+        "flow": {
+          "type": 1,
+          "attributes": [],
+          "rootTask": {
+            "id": 1,
+            "type": 1,
+            "tasks": [
+              {
+                "id": 2,
+                "name": "activity-test",
+                "description": "test activity",
+                "type": 1,
+                "activityType": "mgdevstack-activity",
+                "activityRef": "github.com/mgdevstack/flogo-contrib/activity/simpletest",
+                "attributes": [
+                  {
+                    "name": "input",
+                    "value": "Activity Input",
+                    "required": true,
+                    "type": "string"
+                  }
+                ]
+              }
+            ],
+            "attributes": []
+          }
+        }
+      },
+      "id": "sactivity",
+      "ref": "github.com/TIBCOSoftware/flogo-contrib/action/flow"
+    }
+  ]
+}
